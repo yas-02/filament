@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\Region;
-use App\Models\Venue;
+use App\Models\Venues;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Conference;
@@ -35,7 +35,7 @@ class ConferenceFactory extends Factory
                 'archived',
             ]),
             'region' => $this->faker->randomElement(Region::class),
-            'venue_id' => Venue::factory(),
+            'venue_id' => Venues::factory(),
         ];
     }
 }

@@ -6,7 +6,7 @@ use App\Enums\Region;
 use App\Filament\Resources\ConferenceResource\Pages;
 use App\Filament\Resources\ConferenceResource\RelationManagers;
 use App\Models\Conference;
-use App\Models\Venue;
+use App\Models\Venues;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
