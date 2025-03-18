@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Enums\Region;
 use App\Filament\Resources\VenueResource\Pages;
 use App\Filament\Resources\VenueResource\RelationManagers;
+use App\Models\Venue;
 use App\Models\Venues;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -16,14 +17,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class VenueResource extends Resource
 {
-    protected static ?string $model = Venues::class;
+    protected static ?string $model = Venue::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'First Group';
 
+    protected static ?string $recordTitleAttribute = 'name';
     public static function form(Form $form): Form
     {
         return $form
-            ->schema(Venues::getForm());
+            ->schema(Venue::getForm());
     }
 
     public static function table(Table $table): Table

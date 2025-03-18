@@ -23,8 +23,9 @@ class TalkResource extends Resource
 {
     protected static ?string $model = Talk::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Second Group';
 
+    protected static ?string $recordTitleAttribute = 'name';
     public static function form(Form $form): Form
     {
         return $form
@@ -89,6 +90,7 @@ class TalkResource extends Resource
             ])
             ->actions([
                 Tables\Actions\DeleteAction::make('delete'),
+
                 Tables\Actions\EditAction::make()
                     ->slideOver(),
                 Tables\Actions\ActionGroup::make([

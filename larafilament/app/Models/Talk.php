@@ -35,7 +35,7 @@ class Talk extends Model
     {
         return $this->belongsToMany(Conference::class);
     }
-    public static function getForm()
+    public static function getForm($speakerId = null): array
     {
         return
             [
@@ -56,8 +56,11 @@ class Talk extends Model
                     ->enum(TalkLength::class)
                     ->options(TalkLength::class)->required(),
                 Select::make('speaker_id')
+                    ->hidden(function () use ($speakerId) {
+                        return $speakerId !== null;
+                    })
                     ->relationship('speaker', 'name')
-                    ->required(),
+                    ->required()
             ];
     }
     public function approve(): void
